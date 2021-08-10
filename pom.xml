@@ -9,7 +9,7 @@
   <url>http://maven.apache.org</url>
   <properties>
     <!-- This is the jacoco version we are based of.-->
-    <revision>0.8.6</revision>
+    <revision>0.8.7</revision>
     <!-- this will be set to the tag/branch by CI-->
     <sha1>local</sha1>
     <!-- this will be set to empty for tags by CI -->

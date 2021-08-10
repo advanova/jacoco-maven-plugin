@@ -104,4 +104,8 @@ public abstract class AbstractReportAggregateMojo extends ReportAggregateMojo {
                     dependency, getIncludes(), getExcludes(), sourceEncoding);
         }
     }
+
+    protected MavenProject getProject(){
+        return project;
+    }
 }

@@ -91,13 +91,6 @@ public abstract class AbstractReportAggregateAllMojo extends AbstractReportMojo 
 	}
 
 	@Override
-	void addFormatters(final ReportSupport support, final Locale locale)
-			throws IOException {
-		support.addAllFormatters(outputDirectory, outputEncoding, footer,
-				locale);
-	}
-
-	@Override
 	void createReport(final IReportGroupVisitor visitor,
 			final ReportSupport support) throws IOException {
 		final IReportGroupVisitor group = visitor.visitGroup(title);
@@ -108,11 +101,14 @@ public abstract class AbstractReportAggregateAllMojo extends AbstractReportMojo 
 	}
 
 	@Override
-	protected String getOutputDirectory() {
-		return outputDirectory.getAbsolutePath();
+	File getOutputDirectory() {
+		return outputDirectory;
 	}
 
-	@Override
+	public File getReportOutputDirectory() {
+		return outputDirectory;
+	}
+
 	public void setReportOutputDirectory(final File reportOutputDirectory) {
 		if (reportOutputDirectory != null && !reportOutputDirectory
 				.getAbsolutePath().endsWith("jacoco-aggregate-all")) {
@@ -135,4 +131,7 @@ public abstract class AbstractReportAggregateAllMojo extends AbstractReportMojo 
 		return session.getProjectDependencyGraph().getSortedProjects();
 	}
 
+	protected MavenProject getProject(){
+		return project;
+	}
 }
