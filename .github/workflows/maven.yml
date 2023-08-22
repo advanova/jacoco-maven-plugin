@@ -25,4 +25,4 @@ jobs:
       with:
         maven-version: 3.6.0
     - name: Build with Maven
-      run: mvn -B package -Dsha1=${GITHUB_REF##*/} --file pom.xml
+      run: mvn -V -B package -Dsha1=${GITHUB_REF##*/} --file pom.xml
